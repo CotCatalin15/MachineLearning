@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{593427FE-862E-4C1E-9D43-238971E2B918}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MachineLearningLib</RootNamespace>
+    <AssemblyName>MachineLearningLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ML\Data\BasicData\BasicDataPair.cs" />
+    <Compile Include="ML\Data\BasicData\BasicDataSet.cs" />
+    <Compile Include="ML\Data\IMLDataPair.cs" />
+    <Compile Include="ML\Data\IMLDataSet.cs" />
+    <Compile Include="ML\Neural\Networks\BasicLayer.cs" />
+    <Compile Include="ML\Neural\Networks\Propagation\ForwardNetwork\ForwardPropagationNetwork.cs" />
+    <Compile Include="ML\Neural\Networks\Propagation\ForwardNetwork\ParallelForwardNetwork.cs" />
+    <Compile Include="ML\Neural\Networks\Propagation\ForwardNetwork\PropagationNetworkProxy.cs" />
+    <Compile Include="ML\Neural\Networks\Propagation\IPropagationNetwork.cs" />
+    <Compile Include="ML\Neural\Networks\Training\Gradient\Worker\GradientWorker.cs" />
+    <Compile Include="ML\Neural\Networks\Training\Gradient\Worker\GradientWorkload.cs" />
+    <Compile Include="ML\Neural\Networks\Training\Propagation\Backpropagation\BackPropagation.cs" />
+    <Compile Include="ML\Neural\Networks\Training\Propagation\Propagator.cs" />
+    <Compile Include="ML\Neural\Networks\Training\Propagation\Resilient\ResilientPropagation.cs" />
+    <Compile Include="ML\Neural\Networks\Training\Propagation\Resilient\RPROPConst.cs" />
+    <Compile Include="ML\Utils\ActivationFunctions\IActivationFunction.cs" />
+    <Compile Include="ML\Utils\ActivationFunctions\NullActivationFunction.cs" />
+    <Compile Include="ML\Utils\ActivationFunctions\SigmodFunction.cs" />
+    <Compile Include="ML\Utils\ActivationFunctions\SoftmaxActivation.cs" />
+    <Compile Include="ML\Utils\Array\ArrayEngine.cs" />
+    <Compile Include="ML\Utils\ErrorCalculation\ErrorCalculation.cs" />
+    <Compile Include="ML\Utils\ErrorCalculation\ErrorCalculationMode.cs" />
+    <Compile Include="ML\Utils\ErrorFunction\IErrorFunction.cs" />
+    <Compile Include="ML\Utils\ErrorFunction\LinearErrorFunction.cs" />
+    <Compile Include="ML\Utils\MathUtils\IntRange.cs" />
+    <Compile Include="ML\Utils\MLUtils.cs" />
+    <Compile Include="ML\Utils\Threading\SuperQueue\SuperQueue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ML\Utils\SliceRange\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
